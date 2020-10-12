@@ -1,9 +1,13 @@
 let rndIndex = 0;
 
-function randomPie() {
-    let rndPie = (pie[rndIndex + 0] * 100) + (pie[rndIndex + 1] * 10) + (pie[rndIndex + 2] * 1);
-    rndIndex += 3;
-    if (rndIndex > (pie.length - 3)) {
+function randomPie(n) {
+    let rndPie = 0;
+    for (let i = 0; i < n; i++) {
+        rndPie += pie[rndIndex] * pow(10, (n - 1) - i);
+        rndIndex++;
+    }
+
+    if (rndIndex > (pie.length - n)) {
         rndIndex = 0;
     }
     return rndPie;
